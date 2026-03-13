@@ -31,7 +31,7 @@ jobs:
 
       - name: Deploy to Server via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no dev@34.16.108.159 << EOF
+          ssh -o StrictHostKeyChecking=no dev@192.168.240.134 << EOF
           echo "${{ secrets.DOCKER_PASS }}" | docker login --username "${{ secrets.DOCKER_USER }}" --password-stdin
           docker pull devopsmolvi/webimages:${IMAGE_VERSION}
           docker stop webserver || true
